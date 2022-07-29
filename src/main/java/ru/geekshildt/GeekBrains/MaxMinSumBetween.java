@@ -3,6 +3,9 @@ package ru.geekshildt.GeekBrains;
 public class MaxMinSumBetween {
     public static void main(String[] args) {
         int[] myArray = new int[] {2, 5, 110, 49, -50, 7, 15, 0};
+        System.out.println(SumBetween(myArray));
+    }
+    public static int SumBetween(int[] myArray) {
         int maxi = 0;
         int mini = 1;
         int sum = 0;
@@ -25,6 +28,6 @@ public class MaxMinSumBetween {
         for (int i = mini + 1; i < maxi; i++) {
             sum = sum + myArray[i];
         }
-        System.out.println(sum);
+        return sum;
     }
 }

@@ -1,8 +1,21 @@
 package ru.geekshildt.GeekBrains;
 
 public class MaxMin {
-    public static void main(String[] args) {
-        int[] myArray = new int[] {2, 55, 1, -49, 3, 7, 15, 0};
+
+static class Extremums {
+    int min;
+    int max;
+
+    public Extremums(int[] myArray) {
+        this.min = MaxMinFind(myArray).min;
+        this.max = MaxMinFind(myArray).max;
+    }
+
+    public Extremums(int mini, int maxi) {
+        this.max = maxi;
+        this.min = mini;
+    }
+    public static Extremums MaxMinFind(int[] myArray) {
         int maxi = 0;
         int mini = 1;
         if (myArray[maxi] < myArray[mini]) {
@@ -16,6 +29,14 @@ public class MaxMin {
             }
             mini = myArray[mini] > myArray[i] ? i: mini;
         }
-        System.out.println(mini + " " + maxi);
+        return new Extremums(mini, maxi);
     }
+}
+    public static void main(String[] args) {
+        int[] myArray = new int[] {2, 55, 1, -49, 3, 7, 15, 0};
+        Extremums myExtremums = new Extremums(myArray);
+        System.out.println(myExtremums.max);
+        System.out.println(myExtremums.min);
+    }
+
 }
